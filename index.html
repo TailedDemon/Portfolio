@@ -7,7 +7,7 @@
   <title>Niikotey Amon</title>
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <link href="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
@@ -40,7 +40,7 @@
           <a href="#experiance" class="nav-link">Experiance</a>
         </li>
         <li>
-          <a href="#contact" class="nav-link">Contact</a>
+          <a hidden href="#contact" class="nav-link">Contact</a>
         </li>
 
       </ul>
@@ -250,13 +250,15 @@ Responsible for the daily checking and stocking inventory
     </div>
   </section>
 
-  <section class="contact" id="contact">
+
+
+  <section hidden class="contact" id="contact">
     <div class="container">
       <div class="section-heading">
         <h1>Contact</h1>
         <h6>Let's work together!</h6>
       </div>
-      <form action="" data-aos="fade-up" data-aos-delay="300">
+      <form onsubmit="sendEmail(); reset(); return false;" action="" data-aos="fade-up" data-aos-delay="300">
         <label for="name">Name:</label>
         <input type="text" id="name" name="name" placeholder="Enter your name..." required>
         <label for="email">Email:</label>
@@ -277,7 +279,7 @@ Responsible for the daily checking and stocking inventory
     <div class="up" id="up">
       <i class="fas fa-chevron-up"></i>
     </div>
-    <p>&copy; 2020 Niikotey Amon</p>
+    <p>&copy; 2022 Niikotey Amon</p>
   </footer>
 
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
@@ -296,6 +298,25 @@ Responsible for the daily checking and stocking inventory
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
   <script src="javascript/main.js"></script>
+  <script> src="https://smtpjs.com/v3/smtp.js"</script>
+  <script>
+    function sendEmail(){
+      Email.send({
+    Host : "smtp.hotmail.com",
+    Username : "niikotey.amon@hotmail.com",
+    Password : "xboxgamer1234",
+    To : 'niikotey.amon@hotmail.com',
+    From : document.getElementById("email").value,
+    Subject : "New Contact Form Enquiry",
+    Body : "Name: " + document.getElemntById("name").value
+    + "<br> Email: " + document.getElemntById("email").value
+      + "<br> Subject: " + document.getElemntById("subject").value
+}).then(
+  message => alert("Message Sent sucesfully")
+);
+    }
+  </script>
+
 </body>
 
 </html>
