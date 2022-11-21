@@ -141,7 +141,7 @@ li {
 
 .nav-link {
   font-family: 'The Historia Demo', sans-serif;
-  src: url('../fonts/TheHistoriaDemo.ttf');
+  src: url('fonts/TheHistoriaDemo.ttf');
   font-size: 5rem;
   padding: 1rem;
 }
